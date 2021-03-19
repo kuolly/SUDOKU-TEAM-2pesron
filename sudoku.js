@@ -37,10 +37,14 @@ function solve(boardString) {
     return true;
     }
   
-  return conPuz;
+    let tempArr = [];
+  for (let i = 0; i < conPuz.length; i++) {
+   tempArr.push(conPuz[i].join(''));
+  }
+  return tempArr.join('');
 }
 
-// console.table(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'));
+console.log(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'));
 
 // Returns a boolean indicating whether
 // or not the provided board is solved.
