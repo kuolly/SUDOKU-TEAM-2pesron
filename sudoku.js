@@ -44,15 +44,25 @@ function solve(boardString) {
   return tempArr.join('');
 }
 
-console.log(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'));
+// console.log(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'));
 
 // Returns a boolean indicating whether
 // or not the provided board is solved.
 // The input board will be in whatever
 // form `solve` returns.
 function isSolved(board) {
-  return true;
+  arrOfNum = board.split('')
+  let sum = arrOfNum.reduce((a, b) => +a + +b);
+
+  if (sum === 405) {
+    return true;
+  }
+  else {
+    return false;
+  }
+
 }
+// console.log(isSolved(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3')));
 
 
 // Takes in a board in some form and
