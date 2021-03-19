@@ -23,7 +23,14 @@ function isSolved(board) {
 // The input board will be in whatever
 // form `solve` returns.
 function prettyBoard(board) {
+  let arr = board.split('');
+  let subarr = [];
+  let size = 9;
+  for (let i = 0; i < Math.ceil(arr.length / size); i++) {
+    subarr[i] = arr.slice((i*size), (i*size) + size);
+  }
 
+  return subarr;
 }
 
 // Exports all the functions to use them in another file.
