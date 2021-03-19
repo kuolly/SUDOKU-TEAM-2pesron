@@ -1,3 +1,6 @@
+const sudokuParse = require('./runner')
+
+
 // Takes a board as a string in the format
 // you see in the puzzle file. Returns
 // something representing a board after
