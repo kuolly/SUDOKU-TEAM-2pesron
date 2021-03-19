@@ -1,11 +1,7 @@
 
 const chalk = require('chalk');
-console.log(chalk.blue('Hello world!'));
 
 const sudokuParse = require('./runner')
-
-// const sudokuParse = require('./runner')
-
 
 function solve(boardString) {
   let conPuz = prettyBoard(boardString);
@@ -29,7 +25,7 @@ function solve(boardString) {
         if (data[i][j] == '-') {
           for (let k = 1; k <= 9; k++) {
             if (isValid(data, i, j, k)) {
-              data[i][j] = chalk.blue(`${k}`);
+              data[i][j] = `${k}`;
             if (sodokoSolver(data)) {
              return true;
             } else {
@@ -55,8 +51,18 @@ function solve(boardString) {
 
 
 function isSolved(board) {
-  return true;
+  arrOfNum = board.split('')
+  let sum = arrOfNum.reduce((a, b) => +a + +b);
+
+  if (sum === 405) {
+    return true;
+  }
+  else {
+    return false;
+  }
+
 }
+// console.log(isSolved(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3')));
 
 
 function prettyBoard(board) {

@@ -4,7 +4,7 @@ const { prettyBoard } = require('./sudoku');
 
 const sudoku = require('./sudoku');
 
-function sudokuParse(content, puzzleNumber = 13) {
+function sudokuParse(content, puzzleNumber = 0) {
   let puzzle = content.split('\n')[puzzleNumber];
   console.table(prettyBoard(puzzle)); 
   return puzzle;
