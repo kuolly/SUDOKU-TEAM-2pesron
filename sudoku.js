@@ -1,4 +1,7 @@
 
+const chalk = require('chalk');
+console.log(chalk.blue('Hello world!'));
+
 const sudokuParse = require('./runner')
 
 // const sudokuParse = require('./runner')
@@ -26,7 +29,7 @@ function solve(boardString) {
         if (data[i][j] == '-') {
           for (let k = 1; k <= 9; k++) {
             if (isValid(data, i, j, k)) {
-              data[i][j] = `${k}`;
+              data[i][j] = chalk.blue(`${k}`);
             if (sodokoSolver(data)) {
              return true;
             } else {
@@ -41,25 +44,21 @@ function solve(boardString) {
     return true;
     }
   
-  return conPuz;
+    let tempArr = [];
+  for (let i = 0; i < conPuz.length; i++) {
+   tempArr.push(conPuz[i].join(''));
+  }
+  return tempArr.join('');
 }
 
-// console.table(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'));
+//console.log(solve('--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'));
 
-// Returns a boolean indicating whether
-// or not the provided board is solved.
-// The input board will be in whatever
-// form `solve` returns.
+
 function isSolved(board) {
   return true;
 }
 
 
-// Takes in a board in some form and
-// returns a String that's well formatted
-// for output to the screen.
-// The input board will be in whatever
-// form `solve` returns.
 function prettyBoard(board) {
   let arr = board.split('');
   let subarr = [];
@@ -71,7 +70,6 @@ function prettyBoard(board) {
   return subarr;
 }
 
-// Exports all the functions to use them in another file.
 module.exports = {
 	solve: solve,
 	isSolved: isSolved,
